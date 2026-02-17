@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Career Guidance Toolkit</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #1e3c72, #2a5298);
+            color: white;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .container {
+            background: white;
+            color: black;
+            padding: 30px;
+            border-radius: 10px;
+            width: 60%;
+            margin: auto;
+        }
+
+        h1 {
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin-top: 20px;
+            background: #2a5298;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1e3c72;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        select {
+            padding: 8px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Career Guidance Toolkit</h1>
+    <p>Discover your future career path 🚀</p>
+
+    <div class="container">
+
+        <h2>Quick Career Quiz</h2>
+
+        <p>1. What do you enjoy most?</p>
+        <select id="interest">
+            <option value="tech">Technology & Coding</option>
+            <option value="business">Business & Leadership</option>
+            <option value="health">Helping & Healthcare</option>
+            <option value="creative">Art & Creativity</option>
+        </select>
+
+        <p>2. How do you prefer to work?</p>
+        <select id="style">
+            <option value="team">In a Team</option>
+            <option value="alone">Independently</option>
+        </select>
+
+        <br>
+
+        <button onclick="getCareer()">Get My Career Suggestion</button>
+
+        <div id="result"></div>
+
+    </div>
+
+    <script>
+        function getCareer() {
+            let interest = document.getElementById("interest").value;
+            let style = document.getElementById("style").value;
+
+            let career = "";
+
+            if (interest === "tech") {
+                career = "Software Engineer, Data Analyst, or Cybersecurity Specialist";
+            } else if (interest === "business") {
+                career = "Entrepreneur, Marketing Manager, or Financial Analyst";
+            } else if (interest === "health") {
+                career = "Doctor, Nurse, Psychologist, or Public Health Specialist";
+            } else if (interest === "creative") {
+                career = "Graphic Designer, Content Creator, or Architect";
+            }
+
+            if (style === "alone") {
+                career += " (You may prefer roles with independent work.)";
+            } else {
+                career += " (You may enjoy collaborative team environments.)";
+            }
+
+            document.getElementById("result").innerText =
+                "Based on your answers, you should explore: " + career;
+        }
+    </script>
+
+</body>
+</html>
